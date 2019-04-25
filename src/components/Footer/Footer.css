@@ -1,0 +1,7 @@
+.content-footer {
+  background-color: #041d3f;
+  height: 75px;
+  min-height: 75px;
+  max-height: 75px;
+  box-shadow: 0 0 20px gray;
+}

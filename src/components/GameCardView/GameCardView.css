@@ -1,0 +1,6 @@
+.content-game-cards {
+  padding: 25px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
