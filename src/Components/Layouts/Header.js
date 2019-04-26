@@ -22,7 +22,7 @@ const styles = theme => ({
 });
 
 class Header extends Component {
-  logInOrLogOutButton = () => {
+  getToolbarButtons = classes => {
     const { isLoggedIn, handleLogInLogOut } = this.props;
     if (isLoggedIn) {
       return (
@@ -32,9 +32,16 @@ class Header extends Component {
       );
     } else {
       return (
-        <Button color="inherit" onClick={handleLogInLogOut}>
-          Log In
-        </Button>
+        <React.Fragment>
+          <Link to="/register" className={classes.link}>
+            <Button color="secondary">
+              Register
+            </Button>
+          </Link>
+          <Button color="inherit" onClick={handleLogInLogOut}>
+            Log In
+          </Button>
+        </React.Fragment>
       );
     }
   };
@@ -45,17 +52,13 @@ class Header extends Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <Typography
-              variant="h6"
-              color="inherit"
-              className={classes.grow}
-            >
+            <Typography variant="h6" color="inherit" className={classes.grow}>
               <Link to="/" className={classes.link}>
                 Milwaukee Wargames
               </Link>
             </Typography>
 
-            {this.logInOrLogOutButton()}
+            {this.getToolbarButtons(classes)}
           </Toolbar>
         </AppBar>
       </div>

@@ -6,7 +6,8 @@ import { withStyles } from "@material-ui/core/styles";
 const styles = theme => ({
   footer: {
     marginTop: "50px",
-    marginBottom: "50px"
+    paddingBottom: "50px",
+    backgroundImage: `linear-gradient(180deg, transparent, #00a8e1 90%)`
   }
 });
 
@@ -25,7 +26,12 @@ class Footer extends Component {
           component="p"
         >
           Milwaukee Wargames is an open-source hobby project.{" "}
-          <a href="https://github.com/nhalase/mkewargames" target="_blank">
+          <a
+            rel="noopener"
+            class="primary-anchor"
+            href="https://github.com/nhalase/mkewargames"
+            target="_blank"
+          >
             Check it out on GitHub
           </a>
         </Typography>

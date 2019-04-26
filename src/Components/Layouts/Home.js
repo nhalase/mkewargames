@@ -20,24 +20,28 @@ const styles = theme => ({
 
 class Home extends Component {
   render() {
-    const { classes } = this.props;
+    const { classes, isLoggedIn } = this.props;
     return (
       <React.Fragment>
-        <HomeHeroUnit />
+        <HomeHeroUnit isLoggedIn={isLoggedIn} />
         <Paper elevation={0} className={classes.paper}>
-          <Typography variant="headline" align="center" gutterBottom>
+          <Typography variant="h5" align="center" gutterBottom>
             Games We Play
           </Typography>
           <Typography variant="body1" align="center" gutterBottom>
             The games list is sorted by most recently played. If a game is
             missing from this list,{" "}
-            <a href="mailto:njhalase+mkewargames@gmail.com">
+            <a
+              class="primary-anchor"
+              rel="noopener"
+              href="mailto:njhalase+mkewargames@gmail.com"
+            >
               contact us via email
             </a>{" "}
             and we&apos;ll be sure to include it in a future release!
           </Typography>
         </Paper>
-        <GameCardList />
+        <GameCardList isLoggedIn={isLoggedIn} />
       </React.Fragment>
     );
   }

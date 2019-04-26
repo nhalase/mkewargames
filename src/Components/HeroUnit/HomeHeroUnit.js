@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const styles = theme => ({
   heroUnit: {
-    backgroundColor: theme.palette.background.paper
+    backgroundImage: `linear-gradient(180deg, #f8a800 50%, transparent)`
   },
   heroContent: {
     maxWidth: 600,
@@ -18,6 +18,9 @@ const styles = theme => ({
   },
   link: {
     textDecoration: "none"
+  },
+  linkButtonPrimaryLight: {
+    color: theme.palette.primary.light
   }
 });
 

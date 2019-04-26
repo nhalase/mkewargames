@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { GameCard } from ".";
+import { games } from "../../Data";
 
 const styles = theme => ({
   root: {
@@ -14,23 +15,21 @@ const styles = theme => ({
   }
 });
 
-function getGameCards() {
-  return Array(10)
-    .fill()
-    .map((_, index) => (
-      <Grid key={index.toString()} item xs-auto="true">
-        <GameCard key={index} />
+class GameCardList extends Component {
+  getGameCards = (isLoggedIn) => {
+    return games.map((game, index) => (
+      <Grid key={game.key} item xs-auto="true">
+        <GameCard game={game} isLoggedIn={isLoggedIn} />
       </Grid>
     ));
-}
+  };
 
-class GameCardList extends Component {
   render() {
-    const { classes } = this.props;
+    const { classes, isLoggedIn } = this.props;
     return (
       <div className={classes.root}>
         <Grid container spacing={24} className={classes.grid}>
-          {getGameCards()}
+          {this.getGameCards(isLoggedIn)}
         </Grid>
       </div>
     );
