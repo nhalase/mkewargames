@@ -20,6 +20,7 @@
   background: linear-gradient(180deg, #f8a800 50%, #041d3f 50%);
   position: fixed;
   z-index: 1;
+  /* box-shadow: 0 -10px 20px #00a8e1; */
 }
 
 .footer-primary {
@@ -27,7 +28,7 @@
   height: 75px;
   min-height: 75px;
   max-height: 75px;
-  box-shadow: 0 10px 20px #00a8e1;
+  /* box-shadow: 0 10px 20px #00a8e1; */
   min-width: 100vw;
   position: fixed;
   z-index: 1;
@@ -38,5 +39,6 @@
   margin-top: 175px;
   margin-bottom: 75px;
   padding: 25px;
+  padding-top: 75px;
   display: flex;
 }
