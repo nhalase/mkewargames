@@ -100,5 +100,7 @@ typings/
 # Personal additions
 
 scratch
+build
+.firebase
 
 # End of personal additions
