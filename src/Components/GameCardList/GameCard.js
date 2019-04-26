@@ -19,7 +19,7 @@ const styles = theme => ({
     height: 140
   },
   linkButtonSecondaryDark: {
-    color: (theme.palette.secondary.dark)
+    color: theme.palette.secondary.dark
   }
 });
 
@@ -57,12 +57,9 @@ class GameCard extends Component {
             image={game.thumbnail}
             title={game.name}
           />
-          <CardContent>
-            <Typography component="p">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
-            </Typography>
-          </CardContent>
+          {/* <CardContent>
+            <Typography component="p">By {game.developer}</Typography>
+          </CardContent> */}
         </CardActionArea>
         <CardActions>{this.renderCardActions(isLoggedIn, classes)}</CardActions>
       </Card>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Grid } from "@material-ui/core";
+import { Grid, GridList, GridListTile } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { GameCard } from ".";
 import { games } from "../../Data";
@@ -18,9 +18,9 @@ const styles = theme => ({
 class GameCardList extends Component {
   getGameCards = (isLoggedIn) => {
     return games.map((game, index) => (
-      <Grid key={game.key} item xs-auto="true">
+      <GridListTile key={game.key} item xs={3}>
         <GameCard game={game} isLoggedIn={isLoggedIn} />
-      </Grid>
+      </GridListTile>
     ));
   };
 
@@ -28,9 +28,14 @@ class GameCardList extends Component {
     const { classes, isLoggedIn } = this.props;
     return (
       <div className={classes.root}>
-        <Grid container spacing={24} className={classes.grid}>
+        <GridList
+          // container
+          // spacing={24}
+          // className={classes.grid}
+          cols={4}
+        >
           {this.getGameCards(isLoggedIn)}
-        </Grid>
+        </GridList>
       </div>
     );
   }
