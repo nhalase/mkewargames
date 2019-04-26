@@ -1,20 +1,22 @@
-.content-game-wrapper {
-  padding: 20px;
-  background-color: aliceblue;
-  background-color: rgba(0, 0, 0, 0);
-  display: flex;
+.content-view-game {
   flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
   flex-grow: 1;
+  background-color: #041d3f;
 }
 
-.content-game {
-  padding: 10px;
-  padding-left: 15px;
-  background-color: lightcoral;
+.game {
+  padding-left: 25px;
+  padding-right: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  background-color: whitesmoke;
   border-radius: 5px;
   box-shadow: 0 0 5px gray;
 }
 
-.content-rows {
-  flex-direction: row;
+.game > .header {
+  background-color: black;
 }

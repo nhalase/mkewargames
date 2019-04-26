@@ -10,9 +10,9 @@
   margin-right: 25px;
   margin-bottom: 25px;
   border-radius: 5px;
-  box-shadow: 2px 2px 2px 2px gray;
+  box-shadow: 0 0 5px #00a8e1;
 }
 
 .game-card:hover {
-  box-shadow: 5px 5px 5px 5px gray;
+  box-shadow: 0 0 0 5px #00a8e1;
 }

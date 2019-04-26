@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./GameCardView.css";
+import "./GameCardList.css";
 import { Link } from "react-router-dom";
 
 import GameCard from "../GameCard/GameCard";
@@ -11,11 +11,11 @@ class GameCardView extends Component {
   }
 
   render() {
-    return <div className="content content-game-cards">{this.renderCards()}</div>;
+    return <div className="content-view game-cards">{this.renderCards()}</div>;
   }
 
   renderCards = () => {
-    return Array(24)
+    return Array(12)
       .fill()
       .map((_, i) => (
         <Link to={"/game/" + i}>

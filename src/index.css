@@ -8,6 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: whitesmoke;
   overflow-y: scroll;
+  box-sizing: border-box;
 }
 
 code {
@@ -16,7 +17,6 @@ code {
 }
 
 .root {
-  position: absolute;
-  display: flex;
-  height: 100%;
+  position: fixed;
+  width: 100%;
 }
