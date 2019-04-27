@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { AppBar, Toolbar, Button, Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
-import { HomeLink, RegisterLink } from '../Links'
+import { HomeLink, LogInLink } from '../Links'
 import { brand } from '../../Data'
 
 const styles = (theme) => ({
@@ -24,20 +24,17 @@ const styles = (theme) => ({
 
 class Header extends Component {
   getToolbarButtons = (classes) => {
-    const { isLoggedIn, handleLogInLogOut } = this.props
+    const { isLoggedIn, handleLogOut } = this.props
     if (isLoggedIn) {
       return (
-        <Button color='inherit' onClick={handleLogInLogOut}>
+        <Button color='inherit' onClick={handleLogOut}>
           Log Out
         </Button>
       )
     } else {
       return (
         <React.Fragment>
-          <Button component={RegisterLink} color='secondary'>
-            Register
-          </Button>
-          <Button color='inherit' onClick={handleLogInLogOut}>
+          <Button component={LogInLink} color='inherit'>
             Log In
           </Button>
         </React.Fragment>

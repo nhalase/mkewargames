@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import { Typography, Grid, Button } from '@material-ui/core'
-import { AboutLink, RegisterLink } from '../Links'
+import { AboutLink } from '../Links'
 import { city, brand } from '../../Data'
 
 const styles = (theme) => ({
@@ -35,16 +35,11 @@ class HomeHeroUnit extends Component {
             {city} Wargaming Central
           </Typography>
           <Typography variant='h6' align='center' color='textSecondary' paragraph>
-            {brand} attempts to inform what games people are playing, when they are playing them, and
-            where they play them at.
+            {brand} attempts to inform what games people are playing, when they are playing them, and where they
+            play them at.
           </Typography>
           <div className={classes.heroButtons}>
             <Grid container spacing={16} justify='center'>
-              <Grid item>
-                <Button variant='contained' color='primary' component={RegisterLink}>
-                  Help keep us up-to-date
-                </Button>
-              </Grid>
               <Grid item>
                 <Button variant='outlined' color='secondary' component={AboutLink}>
                   Learn more

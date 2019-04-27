@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const HomeLink = (props) => <Link exact strict to='/' {...props} />
-const AboutLink = (props) => <Link exact to='/about' {...props} />
-const RegisterLink = (props) => <Link exact to='/register' {...props} />
-const PrivacyPolicyLink = (props) => <Link exact to='privacy' {...props} />
+const HomeLink = (props) => <Link to='/' {...props} />
+const AboutLink = (props) => <Link to='/about' {...props} />
+const PrivacyPolicyLink = (props) => <Link to='/privacy' {...props} />
+const LogInLink = (props) => <Link to='/login' {...props} />
 
-export { HomeLink, AboutLink, RegisterLink, PrivacyPolicyLink }
+export { HomeLink, AboutLink, PrivacyPolicyLink, LogInLink }

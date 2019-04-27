@@ -31,7 +31,7 @@ class Home extends Component {
           </Typography>
           <Typography variant='body1' align='center' gutterBottom>
             The games list is sorted by most recently played. If a game is missing from this list,{' '}
-            <a class='primary-anchor' rel='noopener' href={`mailto:${contactEmail}`}>
+            <a className='primary-anchor' rel='noopener noreferrer' href={`mailto:${contactEmail}`}>
               contact us via email
             </a>{' '}
             and we&apos;ll be sure to include it in a future release!

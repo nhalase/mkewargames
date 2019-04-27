@@ -4,7 +4,8 @@ import { CssBaseline } from '@material-ui/core'
 import { withStyles, createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 import { Header, Footer } from './Components/Layouts'
 import { Switch, Route } from 'react-router-dom'
-import { Home, PrivacyPolicy, About, Register } from './Components/Routes'
+import { Home, PrivacyPolicy, About, LogIn, TermsOfService } from './Components/Routes'
+import { auth } from './Components/Firebase' // eslint-disable-line no-unused-vars
 
 const theme = createMuiTheme({
   typography: {
@@ -37,10 +38,20 @@ class App extends Component {
   state = {
     isLoggedIn: false,
   }
-  handleLogInLogOut = (e) => {
-    const { isLoggedIn } = this.state
+  handleLogInSuccess = (success) => {
+    console.debug(success)
     this.setState({
-      isLoggedIn: !isLoggedIn,
+      isLoggedIn: success,
+    })
+  }
+  handleLogOut = (e) => {
+    auth.signOut().then(() => {
+      console.debug('sign out success')
+    }, (error) => {
+      console.error(error)
+    })
+    this.setState({
+      isLoggedIn: false,
     })
   }
   render() {
@@ -49,20 +60,17 @@ class App extends Component {
       <React.Fragment>
         <CssBaseline />
         <MuiThemeProvider theme={theme}>
-          <Header isLoggedIn={this.state.isLoggedIn} handleLogInLogOut={this.handleLogInLogOut} />
+          <Header isLoggedIn={this.state.isLoggedIn} handleLogOut={this.handleLogOut} />
           <main>
             <Switch>
               <Route exact path='/about' render={(props) => <About {...props} isLoggedIn={this.state.isLoggedIn} />} />
               <Route
                 exact
-                path='/register'
-                render={(props) => <Register {...props} isLoggedIn={this.state.isLoggedIn} />}
+                path='/login'
+                render={(props) => <LogIn handleLogInSuccess={this.handleLogInSuccess} {...props} />}
               />
-              <Route
-                exact
-                path='/privacy'
-                render={(props) => <PrivacyPolicy {...props} isLoggedIn={this.state.isLoggedIn} />}
-              />
+              <Route exact path='/privacy' render={(props) => <PrivacyPolicy {...props} />} />
+              <Route exact path='/terms' render={(props) => <TermsOfService {...props} />} />
               <Route exact strict path='/' render={(props) => <Home {...props} isLoggedIn={this.state.isLoggedIn} />} />
             </Switch>
           </main>

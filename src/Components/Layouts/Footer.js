@@ -22,7 +22,7 @@ class Footer extends Component {
         </Typography>
         <Typography variant='subtitle1' align='center' color='textSecondary' component='p'>
           {brand} is an open-source hobby project.{' '}
-          <a rel='noopener noreferrer' class='primary-anchor' href='https://github.com/nhalase/mkewargames' target='_blank'>
+          <a rel='noopener noreferrer' className='primary-anchor' href='https://github.com/nhalase/mkewargames' target='_blank'>
             Check it out on GitHub
           </a>
         </Typography>

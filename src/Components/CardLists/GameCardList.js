@@ -14,7 +14,7 @@ const styles = (theme) => ({
 class GameCardList extends Component {
   getGameCards = (classes, isLoggedIn) => {
     return games.map((game, _) => (
-      <Grid key={game.key} item lg={3} justify='center'>
+      <Grid key={game.key} item lg={3}>
         <GameCard game={game} isLoggedIn={isLoggedIn} />
       </Grid>
     ))
