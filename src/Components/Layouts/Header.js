@@ -1,73 +1,69 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { AppBar, Toolbar, Button, Typography } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { AppBar, Toolbar, Button, Typography } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
+import { HomeLink, RegisterLink } from '../Links'
+import { brand } from '../../Data'
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   grow: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
     marginLeft: -12,
-    marginRight: 20
+    marginRight: 20,
   },
   link: {
-    textDecoration: "none",
-    color: "inherit"
-  }
-});
+    textDecoration: 'none',
+    color: 'inherit',
+  },
+})
 
 class Header extends Component {
-  getToolbarButtons = classes => {
-    const { isLoggedIn, handleLogInLogOut } = this.props;
+  getToolbarButtons = (classes) => {
+    const { isLoggedIn, handleLogInLogOut } = this.props
     if (isLoggedIn) {
       return (
-        <Button color="inherit" onClick={handleLogInLogOut}>
+        <Button color='inherit' onClick={handleLogInLogOut}>
           Log Out
         </Button>
-      );
+      )
     } else {
       return (
         <React.Fragment>
-          <Link to="/register" className={classes.link}>
-            <Button color="secondary">
-              Register
-            </Button>
-          </Link>
-          <Button color="inherit" onClick={handleLogInLogOut}>
+          <Button component={RegisterLink} color='secondary'>
+            Register
+          </Button>
+          <Button color='inherit' onClick={handleLogInLogOut}>
             Log In
           </Button>
         </React.Fragment>
-      );
+      )
     }
-  };
+  }
 
   render() {
-    const { classes } = this.props;
+    const { classes } = this.props
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position='static'>
           <Toolbar>
-            <Typography variant="h6" color="inherit" className={classes.grow}>
-              <Link to="/" className={classes.link}>
-                Milwaukee Wargames
-              </Link>
+            <Typography variant='h6' color='inherit' className={classes.grow}>
+              <HomeLink className={classes.link}>{brand}</HomeLink>
             </Typography>
-
             {this.getToolbarButtons(classes)}
           </Toolbar>
         </AppBar>
       </div>
-    );
+    )
   }
 }
 
 Header.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+  classes: PropTypes.object.isRequired,
+}
 
-export default withStyles(styles)(Header);
+export default withStyles(styles)(Header)
