@@ -201,7 +201,15 @@ class GameCard extends Component {
     return (
       <Card>
         <CardActionArea>
-          <CardMedia component='img' image={game.thumbnail} title={game.name} />
+          <CardMedia
+            component='img'
+            image={game.thumbnail}
+            title={game.name}
+            onClick={(e) => {
+              e.preventDefault()
+              this.setState({ learnMoreDialogOpen: true })
+            }}
+          />
           {/* <CardContent>
             <Typography component="p">By {game.developer}</Typography>
           </CardContent> */}
