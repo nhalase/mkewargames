@@ -38,20 +38,6 @@ const styles = (theme) => ({
 })
 
 class LogIn extends Component {
-  componentDidMount() {
-    console.info('LogIn did mount; setting unregisterAuthObserver')
-    const { handleLogInSuccess, history } = this.props
-    this.unregisterAuthObserver = auth.onAuthStateChanged((user) => {
-      handleLogInSuccess(!!user)
-      if (!!user) {
-        history.push('/')
-      }
-    })
-  }
-  componentWillUnmount() {
-    console.debug('LogIn will unmount; unregisterAuthObserver')
-    this.unregisterAuthObserver()
-  }
   render() {
     const { classes } = this.props
     return (

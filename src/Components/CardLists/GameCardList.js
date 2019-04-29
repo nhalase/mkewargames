@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Grid } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import { GameCard } from '.'
-import { games } from '../../Data'
 
 const styles = (theme) => ({
   root: {
@@ -12,20 +11,20 @@ const styles = (theme) => ({
 })
 
 class GameCardList extends Component {
-  getGameCards = (classes, isLoggedIn) => {
+  getGameCards = () => {
+    const { user, isLoggedIn, games } = this.props
     return games.map((game, _) => (
       <Grid key={game.key} item lg={3}>
-        <GameCard game={game} isLoggedIn={isLoggedIn} />
+        <GameCard game={game} user={user} isLoggedIn={isLoggedIn} />
       </Grid>
     ))
   }
-
   render() {
-    const { classes, isLoggedIn } = this.props
+    const { classes } = this.props
     return (
       <div className={classes.root}>
         <Grid container spacing={24} justify='center' direction='row'>
-          {this.getGameCards(classes, isLoggedIn)}
+          {this.getGameCards()}
         </Grid>
       </div>
     )

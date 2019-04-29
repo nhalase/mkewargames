@@ -21,23 +21,24 @@ const styles = (theme) => ({
 
 class Home extends Component {
   render() {
-    const { classes, isLoggedIn } = this.props
+    const { classes, isLoggedIn, games, user } = this.props
     return (
       <React.Fragment>
-        <HomeHeroUnit isLoggedIn={isLoggedIn} />
+        <HomeHeroUnit user={user} isLoggedIn={isLoggedIn} games={games} />
         <Paper elevation={0} className={classes.paper}>
           <Typography variant='h5' align='center' gutterBottom>
             Games We Play
           </Typography>
           <Typography variant='body1' align='center' gutterBottom>
-            The games list is sorted by most recently played. If a game is missing from this list,{' '}
+            The games list is sorted first by most recently played, followed by alphabetical ordering. If a game is
+            missing from this list,{' '}
             <a className='primary-anchor' rel='noopener noreferrer' href={`mailto:${contactEmail}`}>
               contact us via email
             </a>{' '}
             and we&apos;ll be sure to include it in a future release!
           </Typography>
         </Paper>
-        <GameCardList isLoggedIn={isLoggedIn} />
+        <GameCardList user={user} isLoggedIn={isLoggedIn} games={games} />
       </React.Fragment>
     )
   }

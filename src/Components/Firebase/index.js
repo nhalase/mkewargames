@@ -27,10 +27,6 @@ var uiConfig = {
   ],
   tosUrl: '/terms',
   privacyPolicyUrl: '/privacy',
-  callbacks: {
-    // Avoid redirects after sign-in.
-    signInSuccessWithAuthResult: () => false,
-  },
 }
 
 if (!firebase.apps.length) {
@@ -41,7 +37,8 @@ const auth = firebase.auth()
 const db = firebase.database()
 const firestore = firebase.firestore()
 const functions = firebase.functions()
+const FieldValue = firebase.firestore.FieldValue
 
-export { auth, db, firestore, functions, uiConfig }
+export { firebase, auth, db, firestore, functions, uiConfig, FieldValue }
 
 export default firebase

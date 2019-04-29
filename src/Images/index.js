@@ -1,5 +1,3 @@
-import PeoplesFlagOfMilwaukee from './Peoples-Flag-of-Milwaukee.svg'
-import Sunrise from './Sunrise.png'
 import AdeptusTitanicusThumbnail from './adeptus-titanicus.jpg'
 import AgeOfSigmarThumbnail from './age-of-sigmar.jpg'
 import ArenaRexThumbnail from './arena-rex.jpg'
@@ -21,27 +19,27 @@ import Warhammer40kThumbnail from './warhammer-40k.jpg'
 import WreckAgeThumbnail from './wreck-age.jpg'
 import WildWestExodusThumbnail from './wild-west-exodus.jpg'
 
-export {
-  PeoplesFlagOfMilwaukee,
-  Sunrise,
-  AdeptusTitanicusThumbnail,
-  AgeOfSigmarThumbnail,
-  ArenaRexThumbnail,
-  BatmanMiniaturesThumbnail,
-  BushidoThumbnail,
-  CarWarsThumbnail,
-  EdenThumbnail,
-  FreebladesThumbnail,
-  FrostgraveThumbnail,
-  GaslandsThumbnail,
-  GuildBallThumbnail,
-  KillTeamThumbnail,
-  MalifauxThumbnail,
-  NecromundaThumbnail,
-  RelicKnightsThumbnail,
-  SongOfIceAndFireThumbnail,
-  TheDrownedEarthThumbnail,
-  Warhammer40kThumbnail,
-  WreckAgeThumbnail,
-  WildWestExodusThumbnail,
+const thumbnails = {
+  'adeptus-titanicus': AdeptusTitanicusThumbnail,
+  'age-of-sigmar': AgeOfSigmarThumbnail,
+  'arena-rex': ArenaRexThumbnail,
+  'batman-miniatures': BatmanMiniaturesThumbnail,
+  bushido: BushidoThumbnail,
+  'car-wars': CarWarsThumbnail,
+  eden: EdenThumbnail,
+  freeblades: FreebladesThumbnail,
+  frostgrave: FrostgraveThumbnail,
+  gaslands: GaslandsThumbnail,
+  'guild-ball': GuildBallThumbnail,
+  'kill-team': KillTeamThumbnail,
+  malifaux: MalifauxThumbnail,
+  necromunda: NecromundaThumbnail,
+  'relic-knights': RelicKnightsThumbnail,
+  'a-song-of-ice-and-fire': SongOfIceAndFireThumbnail,
+  'the-drowned-earth': TheDrownedEarthThumbnail,
+  'warhammer-40k': Warhammer40kThumbnail,
+  'wreck-age': WreckAgeThumbnail,
+  'wild-west-exodus': WildWestExodusThumbnail,
 }
+
+export { thumbnails }

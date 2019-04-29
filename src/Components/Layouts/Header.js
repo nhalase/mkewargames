@@ -49,7 +49,7 @@ class Header extends Component {
         <AppBar position='static'>
           <Toolbar>
             <Typography variant='h6' color='inherit' className={classes.grow}>
-              <HomeLink className={classes.link}>{brand}</HomeLink>
+              <HomeLink className={classes.link}>{brand} (Alpha)</HomeLink>
             </Typography>
             {this.getToolbarButtons(classes)}
           </Toolbar>
