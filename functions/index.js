@@ -11,11 +11,7 @@ exports.resetGamePlays = functions.https.onRequest(async (_, res) => {
     .get()
     .then((snapshot) => {
       const games = []
-      snapshot.forEach((doc) => {
-        const data = doc.data()
-        data['key'] = doc.id
-        games.push(data)
-      })
+      snapshot.forEach((doc) => games.push(doc.data()))
       return games
     })
     .then((games) => {

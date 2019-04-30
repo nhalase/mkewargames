@@ -35,7 +35,7 @@ const styles = (theme) => ({
   },
 })
 
-const about = (props) => <About myName='Nick' {...props} />
+const about = (props) => <About {...props} />
 const login = (props) => <LogIn {...props} />
 const privacy = (props) => <PrivacyPolicy {...props} />
 const terms = (props) => <TermsOfService {...props} />
