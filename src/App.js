@@ -6,7 +6,7 @@ import { Header, Footer } from './Components/Layouts'
 import { Switch, Route } from 'react-router-dom'
 import { Loading, Home, PrivacyPolicy, About, LogIn, TermsOfService } from './Components/Routes'
 import { auth, firestore } from './Components/Firebase' // eslint-disable-line no-unused-vars
-import { thumbnails } from './Images'
+import { fetchGameSummariesByPlayCount as fetchGames } from './Modules'
 
 const theme = createMuiTheme({
   typography: {
@@ -49,6 +49,9 @@ class App extends Component {
     isLoading: true,
     games: [],
   }
+  setGames = (games) => {
+    this.setState({ games: games, isLoading: false })
+  }
   setLoading = (isLoading) => {
     this.setState({ isLoading: isLoading })
   }
@@ -89,46 +92,10 @@ class App extends Component {
       }
     })
   }
-  setGames = (games) => {
-    this.setState({ games: games, isLoading: false })
-  }
-  normalizeGameData = (data, id) => {
-    data['key'] = id
-    data['thumbnail'] = thumbnails[id]
-    return data
-  }
-  handleGamesSnapshot = (snapshot) => {
-    let games = []
-    snapshot.forEach((doc) => {
-      const data = this.normalizeGameData(doc.data(), doc.id)
-      games.push(data)
-    })
-    return games
-  }
-  fetchGames = () => {
-    console.log('fetching games')
-    firestore
-      .collection('games')
-      .orderBy('playCount', 'desc')
-      .orderBy('nickname', 'asc')
-      .get()
-      .then(this.handleGamesSnapshot)
-      .then(this.setGames)
-  }
-  listenForGamesChange = () => {
-    firestore.collection('games').onSnapshot(
-      (_) => {
-        this.fetchGames()
-      },
-      (error) => {
-        console.error('Failed to listen for games collection changes: ' + JSON.stringify(error))
-      }
-    )
-  }
   componentWillMount() {
     this.setLoading(true)
     this.listenForAuthChange()
-    this.listenForGamesChange()
+    fetchGames().then((games) => this.setGames(games))
   }
   getCommonProps = (props) => {
     const { isLoggedIn, games, user } = this.state

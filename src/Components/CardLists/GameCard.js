@@ -121,9 +121,12 @@ class GameCard extends Component {
                 logPlayConfirmationDialogOpen: false,
                 isDialogLoading: true,
               })
-              const gameDocRef = firestore.collection('games').doc(game.key)
-              gameDocRef
-                .update({ playCount: FieldValue.increment(1) })
+              const summaryDocRef = firestore.collection('plays').doc('summary')
+              const update = {}
+              const key = `${game.key}.playCount`
+              update[key] = FieldValue.increment(1)
+              summaryDocRef
+                .update(update)
                 .then(() => {
                   console.log(user.uid + ' logged a play!')
                   this.setState({
